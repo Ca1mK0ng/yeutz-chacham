@@ -61,7 +61,7 @@ body {
 .menu a {
   position: relative;
   text-decoration: none;
-  color: var(--primary);
+  color: #16293d;
   font-weight: 500;
   transition: color 0.25s ease;
 }
@@ -263,4 +263,78 @@ input[type="tel"] {
   width: 28px;
   height: 28px;
   fill: white;
+}
+
+:focus-visible {
+  outline: 3px solid var(--secondary);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* Accessibility toggle button */
+.accessibility-toggle {
+  position: fixed;
+  bottom: 90px;
+  left: 22px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #16293d;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Panel */
+.accessibility-panel {
+  position: fixed;
+  bottom: 150px;
+  left: 22px;
+  width: 220px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  padding: 16px;
+  display: none;
+  z-index: 1000;
+}
+
+.accessibility-panel h2 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.accessibility-panel button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #f6f8fa;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Active states */
+body.high-contrast {
+  background: black !important;
+  color: white !important;
+}
+
+body.high-contrast a {
+  color: yellow !important;
+}
+
+body.grayscale {
+  filter: grayscale(100%);
 }

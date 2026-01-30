@@ -116,6 +116,72 @@
   </svg>
 </a>
 
+<button
+  class="accessibility-toggle"
+  aria-label="פתח תפריט נגישות"
+  aria-expanded="false"
+>
+  ♿
+</button>
+
+<aside class="accessibility-panel" aria-hidden="true">
+  <h2>נגישות</h2>
+
+  <button data-action="font-increase">הגדלת טקסט</button>
+  <button data-action="font-decrease">הקטנת טקסט</button>
+  <button data-action="contrast">ניגודיות גבוהה</button>
+  <button data-action="grayscale">גווני אפור</button>
+  <button data-action="reset">איפוס</button>
+</aside>
+
+<!-- accessibility script -->
+<script>
+  const toggleBtn = document.querySelector('.accessibility-toggle');
+  const panel = document.querySelector('.accessibility-panel');
+
+  let fontScale = 1;
+
+  toggleBtn.addEventListener('click', () => {
+    const open = panel.style.display === 'block';
+    panel.style.display = open ? 'none' : 'block';
+    toggleBtn.setAttribute('aria-expanded', !open);
+    panel.setAttribute('aria-hidden', open);
+  });
+
+  panel.addEventListener('click', (e) => {
+    const action = e.target.dataset.action;
+    if (!action) return;
+
+    switch (action) {
+      case 'font-increase':
+        fontScale = Math.min(fontScale + 0.1, 1.4);
+        document.documentElement.style.fontSize = fontScale + 'em';
+        break;
+
+      case 'font-decrease':
+        fontScale = Math.max(fontScale - 0.1, 0.9);
+        document.documentElement.style.fontSize = fontScale + 'em';
+        break;
+
+      case 'contrast':
+        document.body.classList.toggle('high-contrast');
+        break;
+
+      case 'grayscale':
+        document.body.classList.toggle('grayscale');
+        break;
+
+      case 'reset':
+        fontScale = 1;
+        document.documentElement.style.fontSize = '';
+        document.body.classList.remove('high-contrast', 'grayscale');
+        break;
+    }
+  });
+</script>
+
+
+
 
 <footer class="footer">
   © 2026 ייעוץ נדל״ן חכם
