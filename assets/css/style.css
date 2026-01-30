@@ -279,20 +279,27 @@ input[type="tel"] {
 }
 
 
-/* Accessibility toggle button */
 .accessibility-toggle {
   position: fixed;
   bottom: 90px;
   left: 22px;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  border: none;
-  background: #16293d;
-  color: white;
-  font-size: 22px;
+  border: 2px solid #ffffff;
+  background: #0f2a44  !important; /* darker navy */
+  color: #ffffff  !important;
+  font-size: 24px;
   cursor: pointer;
   z-index: 1000;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+  filter: none !important;
+
+}
+
+.accessibility-toggle:hover,
+.accessibility-toggle:focus-visible {
+  background: #16293d;
 }
 
 /* Panel */
@@ -323,6 +330,13 @@ input[type="tel"] {
   background: #f6f8fa;
   cursor: pointer;
   font-family: inherit;
+  color:#101d2c;
+}
+
+.accessibility-panel button:hover,
+.accessibility-panel button:focus-visible {
+  background: #ffffff !important;
+  color: #0f2a44 !important;
 }
 
 /* Active states */
