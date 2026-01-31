@@ -391,25 +391,53 @@ body.grayscale footer {
 
 
 
-@media (max-width: var(--max-width)) {
-
-  /* Let inner container stretch */
+@media (max-width: 768px) {
+  /* שינוי הגריד לפלקס כדי שהאלמנטים יסתדרו אחד מתחת לשני או בשורות */
   .header-inner {
-    max-width: 100%;
-    padding-left: 0;
-    padding-right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px 15px;
+    gap: 10px;
   }
 
-  /* Make nav full width */
+  /* הלוגו והטלפון יהיו בשורה הראשונה */
+  .logo {
+    order: 1;
+  }
+
+  .header-phone {
+    order: 2;
+    font-size: 0.9rem;
+  }
+
+  /* התפריט יירד שורה ויתפרס על כל הרוחב */
   nav {
+    order: 3;
     width: 100%;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 10px;
   }
 
-  /* Make menu full width */
   .menu {
     width: 100%;
-    justify-content: space-around;
-    background: #f5f7fa;
-    padding: 12px 0;
+    justify-content: space-between; /* פיזור שווה של כפתורי התפריט */
+    background: transparent; /* ביטול הרקע האפור שביקשת קודם */
+    padding: 5px 0;
+  }
+
+  .menu li a {
+    font-size: 0.9rem;
+    padding: 5px 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero {
+    padding: 50px 20px;
   }
 }
