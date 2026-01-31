@@ -103,13 +103,19 @@
 <section id="contact" class="section full-width">
   <h2>צור קשר</h2>
 
-  <form class="contact-form">
-    <input type="text" placeholder="שם מלא" required>
-    <input type="tel" placeholder="טלפון" required>
-    <input type="email" placeholder="אימייל">
-    <textarea placeholder="איך נוכל לעזור?"></textarea>
+  <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+    <input type="hidden" name="access_key" value="2521c9f8-308c-476a-ac1b-ff3506d565b4">
+    <input type="hidden" name="redirect" value="index.html">
+    <input type="text" name="name" placeholder="שם מלא" required>
+    <input type="tel" name="telephone" placeholder="טלפון" required>
+    <input type="email" name="email" placeholder="אימייל">
+    <textarea placeholder="איך נוכל לעזור?" name="message"></textarea>
     <button type="submit">שלח</button>
   </form>
+
+  <p id="form-success" hidden role="status" aria-live="polite">
+  ✅ הפנייה נשלחה בהצלחה! מעבירים אותך לדף הבית…
+</p>
 </section>
 
 <a
@@ -189,6 +195,28 @@
   });
 </script>
 
+<script>
+  const form = document.getElementById('contact-form');
+  const successMsg = document.getElementById('form-success');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form)
+    });
+
+    if (response.ok) {
+      form.hidden = true;
+      successMsg.hidden = false;
+
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 3000);
+    }
+  });
+</script>
 
 
 
