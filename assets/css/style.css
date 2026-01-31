@@ -391,7 +391,7 @@ body.grayscale footer {
 
 
 
-@media (max-width: 768px) {
+@media (max-width: var(--max-width)) {
 
   /* Let inner container stretch */
   .header-inner {
