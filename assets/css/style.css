@@ -38,11 +38,12 @@ body {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
+  gap: 12px;
 }
 
 /* logo stays on the right (RTL) */
 .logo {
-  justify-self: start;
+  justify-self: center;
 }
 
 /* MENU – center */
@@ -54,7 +55,7 @@ nav {
 .menu {
   list-style: none;
   display: flex;
-  gap: 28px;
+  gap: 12px;
   padding: 0;
   margin: 0;
   justify-content: center;
@@ -62,7 +63,7 @@ nav {
 
 /* PHONE – left */
 .header-phone {
-  justify-self: end;
+  justify-self: center;
   font-weight: 700;
   color: var(--secondary);
   text-decoration: none;
