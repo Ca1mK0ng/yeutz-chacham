@@ -25,20 +25,13 @@
     </a>
 
     <nav>
-      <ul class="menu" id="main-menu">
+      <ul class="menu">
         <li><a href="#services">שירותים</a></li>
         <li><a href="#why">למה אנחנו</a></li>
         <li><a href="#contact">צור קשר</a></li>
       </ul>
     </nav>
   
-    <button
-      class="menu-toggle"
-      aria-expanded="false"
-      aria-controls="main-menu"
-    >
-      ☰
-    </button>
 
     <a 
       href="tel:0524070004"
@@ -196,23 +189,6 @@
   });
 </script>
 
-<script>
-  const toggle = document.querySelector('.menu-toggle');
-  const menu = document.querySelector('#main-menu');
-
-  toggle.addEventListener('click', () => {
-    const isOpen = menu.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
-
-  // Close menu when link is clicked (mobile UX)
-  menu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-</script>
 
 
 
